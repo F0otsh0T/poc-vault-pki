@@ -98,9 +98,9 @@ deployment.extensions "poc-04-01" patched
 
 
 ```
-from Tristan to everyone:
+from somebody to everyone:
 https://www.vaultproject.io/docs/commands/lease
-from Tristan to everyone:
+from somebody to everyone:
 spec:
   template:
     metadata:
