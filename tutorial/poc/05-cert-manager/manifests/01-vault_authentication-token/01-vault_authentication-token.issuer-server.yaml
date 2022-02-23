@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Issuer
+metadata:
+  name: vault-issuer-server-token
+  namespace: demo
+spec:
+  vault:
+    path: pki_int/sign/demo-svc-cluster-local-server-n4
+    server: http://vaultdemo.demo.svc.cluster.local:8200
+    auth:
+      tokenSecretRef:
+          name: cert-manager-vault-token-demo
+          key: token

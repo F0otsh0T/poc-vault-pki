@@ -1,0 +1,31 @@
+# app.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: poc-04-02
+  labels:
+    app: poc-04-02
+spec:
+  selector:
+    matchLabels:
+      app: poc-04-02
+  replicas: 1
+  template:
+    metadata:
+      annotations:
+      labels:
+        app: poc-04-02
+    spec:
+      serviceAccountName: dummy
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+          - containerPort: 80
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dummy
+  labels:
+    app: poc-04-02

@@ -1,0 +1,16 @@
+{
+  "connect": [
+    {
+      "enabled": "true",
+      "ca_provider": "vault",
+      "ca_config": [
+        {
+          "address": "http://vaultdemo.demo.svc.cluster.local:8200",
+          "intermediate_pki_path": "poc5b/consul_connect_intermediate",
+          "root_pki_path": "pki",
+          "token": "{{VAULT_TOKEN}}"
+        }
+      ]
+    }
+  ]
+}

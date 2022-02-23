@@ -1,0 +1,16 @@
+{
+  "connect": [
+    {
+      "enabled": "true",
+      "ca_provider": "vault",
+      "ca_config": [
+        {
+          "address": "https://{{VAULT_URL}}:8200",
+          "intermediate_pki_path": "{{PATH_TO_STORE_INTERMEDIATE_CA_PKI}}",
+          "root_pki_path": "{{VAULT_PKI_ENDPOINT_FOR_ROOT_CA}}",
+          "token": "{{VAULT_TOKEN}}"
+        }
+      ]
+    }
+  ]
+}

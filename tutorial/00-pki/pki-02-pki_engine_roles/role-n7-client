@@ -1,0 +1,8 @@
+vault write pki_int/roles/demo-svc-cluster-local-client-n7 \
+allowed_domains="demo.svc.cluster.local" \
+allow_subdomains=true \
+allow_bare_domains=true \
+server_flag=false \
+client_flag=true \
+ou=N7 \
+max_ttl="10m"

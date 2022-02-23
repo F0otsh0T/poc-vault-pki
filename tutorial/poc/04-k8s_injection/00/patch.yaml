@@ -1,0 +1,87 @@
+# patch-basic-annotations.yaml
+spec:
+  template:
+    spec:
+      serviceAccountName: vaultdemo
+    metadata:
+      annotations:
+        vault.hashicorp.com/agent-inject: "true"
+        vault.hashicorp.com/agent-image: vault:1.4.2
+        vault.hashicorp.com/agent-inject-secret-kv: hello/poc
+        vault.hashicorp.com/agent-inject-secret-ca.certificate: pki/cert/ca
+        vault.hashicorp.com/agent-inject-template-ca.certificate: |
+          {{- with secret "pki/cert/ca" -}}
+          {{ .Data.certificate }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.all: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.all: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ . }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.data: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.data: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.issuing_ca: pki_issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.issuing_ca: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.issuing_ca }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.ca_chain: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.ca_chain: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.ca_chain }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.certificate: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.certificate: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.certificate }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.private_key: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.private_key: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.private_key }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-server.serial_number: pki_int/issue/demo-svc-cluster-local-server-n4
+        vault.hashicorp.com/agent-inject-template-server.serial_number: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-server-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.serial_number }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.all: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.all: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ . }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.data: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.data: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.issuing_ca: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.issuing_ca: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.issuing_ca }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.ca_chain: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.ca_chain: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.ca_chain }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.certificate: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.certificate: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.certificate }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.private_key: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.private_key: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.private_key }}
+          {{- end }}
+        vault.hashicorp.com/agent-inject-secret-client.serial_number: pki_int/issue/demo-svc-cluster-local-client-n4
+        vault.hashicorp.com/agent-inject-template-client.serial_number: |
+          {{- with secret "pki_int/issue/demo-svc-cluster-local-client-n4" "common_name=demo.svc.cluster.local" -}}
+          {{ .Data.serial_number }}
+          {{- end }}
+        vault.hashicorp.com/role: vaultdemo
+        vault.hashicorp.com/service: http://vaultdemo.demo.svc.cluster.local:8200

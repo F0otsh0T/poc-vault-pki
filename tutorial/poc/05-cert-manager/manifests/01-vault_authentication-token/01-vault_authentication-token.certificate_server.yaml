@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: token-n4-server
+  namespace: demo
+spec:
+  secretName: mtls-token-n4-server
+  issuerRef:
+    name: vault-issuer-server-token
+  commonName: demo.svc.cluster.local
+  dnsNames:
+  - demo.svc.cluster.local
