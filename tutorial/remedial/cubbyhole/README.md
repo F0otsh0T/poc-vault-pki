@@ -2,7 +2,7 @@
 
 ## TUTORIAL
 
-#### WRITE TOKEN-BASED SECRETS
+#### **WRITE TOKEN-BASED SECRETS**
 
 Login with the dev mode server initial root token.
 
@@ -71,7 +71,8 @@ Code: 403. Errors:
 ```
 
 This should result in a ```permission denied``` error.
-Write Secrets in Cubbyhole
+
+**WRITE SECRETS IN CUBBYHOLE**
 
 Execute the following command to write secret in the ```cubbyhole/private``` path:
 
@@ -129,7 +130,7 @@ No value found at cubbyhole/private
 ```
 
 
-#### CUBBYHOLE WRAPPING TOKEN
+#### **CUBBYHOLE WRAPPING TOKEN**
 
 Think of a scenario where apps read secrets from Vault. The apps need:
 
@@ -216,7 +217,7 @@ s.zOJ5RZiLcVafzBzHLSRIM43H
 ```
     NOTE: The response is the wrapping token rather than the actual client token for apps-policy; therefore, the admin user does not even see the generated token that he/she generated. After 360 seconds, the wrapping token gets expired that its wrapped content will no longer discoverable.
 
-#### UNWRAP SECRETS
+#### **UNWRAP SECRETS**
 
 In order for the apps to acquire a valid token to read secrets from ```secret/data/dev``` path, it must run the unwrap operation using this token.
 
@@ -425,7 +426,7 @@ Code: 400. Errors:
 ```
 
 
-#### VAULT UI
+#### **VAULT UI**
 
 Use the CLI to enable the ```userpass``` auth method.
 
@@ -448,7 +449,7 @@ Success! Data written to: auth/userpass/users/bob
 Web UI
 
     1. Click on the Vault UI tab to launch the Vault UI.
-    2. Enter root in the Token text field and then click Sign In.
+    2. Enter root in the Token text field and then click Sign In. (from CLI, ```cat ~/.vault-token```)
     3. Select secret > app_credential.
     4. Select Copy > Wrap secret.
     5. Copy the wrapping token by clicking the clipboard icon.
