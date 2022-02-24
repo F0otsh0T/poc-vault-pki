@@ -1,5 +1,13 @@
 # HASHICORP VAULT
 
+
+## Proof of Concept Use Cases
+- Consume Secrets via Vault CLI
+- via Vault API
+- via Sidecar Injection
+- via Kubernetes Injection
+- via Cert Manager
+
 ## K8s
 
 #### HELM INSTALL
